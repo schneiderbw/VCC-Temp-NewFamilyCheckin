@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Load Custom CSS -->
+    <link href="assets/css/vineyardcheckin.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="navbar-brand" href="#">Vineyard New Family Check-In Labeler</div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div>
+        <h3>Welcome to The Vineyard!
+          <small class="text-muted">Please enter your child's information below.</small>
+        </h3>
+      </div>
+      <br />
+      <form>
+        <div class="form-row">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Select Service Time</span>
+            </div>
+            <select class="form-control" id="servicetime">
+              <option value="invalid"> -- Select a Service -- </option>
+              <script type="text/JavaScript">
+                var d = new Date();
+                var n = d.getDay();
+                if (n == 6) {
+                  document.write(
+                    `<option value="sat-1730">Saturday - 5:30 PM</option>`
+                  );
+                } else if (n == 0) {
+                  document.write(
+                    `<option value="sun-0900">Sunday - 9:00 AM</option>
+                    <option value="sun-1030">Sunday - 10:30 AM</option>
+                    <option value="sun-1200">Sunday - 12:00 PM</option>`
+                  );
+                } else {
+                  document.write(
+                    `<option value="sat-1730">Saturday - 5:30 PM</option>
+                    <option value="sun-0900">Sunday - 9:00 AM</option>
+                    <option value="sun-1030">Sunday - 10:30 AM</option>
+                    <option value="sun-1200">Sunday - 12:00 PM</option>`
+                  );
+                }
+              </script>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div id="dynamicInput">
+          <div class="card">
+            <div class="card-body">
+              <h3>Child 1</h3>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First Name" id="fname_1">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last Name" id="lname_1">
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Select Grade</span>
+                    </div>
+                    <select class="form-control" id="grade_1`">
+                      <option value="ps">PreSchool</option>
+                      <option value="kg">Kindergarten</option>
+                      <option value="1">1st Grade</option>
+                      <option value="2">2nd Grade</option>
+                      <option value="3">3rd Grade</option>
+                      <option value="4">4th Grade</option>
+                      <option value="5">5th Grade</option>
+                      <option value="6">6th Grade</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+        </div>
+        <input type="button" class="btn btn-secondary" value="Add Another Child" onClick="addInput('dynamicInput');">
+        <input type="button" class="btn btn-primary" value="Print Labels">
+      </form>
+
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- This is the JS to spawn multiple children on the same form -->
+    <script type="text/JavaScript">
+      var counter = 1;
+      var limit = 9;
+      function addInput(divName){
+        if (counter == limit) {
+          alert("You cannot add more than " + counter + " children.");
+        } else {
+          var newdiv = document.createElement('div');
+          newdiv.setAttribute("class","card repeating");
+          newdiv.innerHTML = `
+            <div class="card-body">
+              <h3>Child ` + (counter + 1) + `</h3>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First Name" id="fname_` + counter + `">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last Name" id="lname_` + counter + `">
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Select Grade</span>
+                    </div>
+                    <select class="form-control" id="grade_` + counter + `">
+                      <option value="ps">PreSchool</option>
+                      <option value="kg">Kindergarten</option>
+                      <option value="1">1st Grade</option>
+                      <option value="2">2nd Grade</option>
+                      <option value="3">3rd Grade</option>
+                      <option value="4">4th Grade</option>
+                      <option value="5">5th Grade</option>
+                      <option value="6">6th Grade</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+            document.getElementById(divName).appendChild(newdiv);
+            counter++;
+        }
+      }
+    </script>
+  </body>
+</html>
