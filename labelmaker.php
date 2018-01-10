@@ -76,8 +76,8 @@
     <!-- JS to print on page load -->
     <script type="text/javascript">
       function PrintPage() {
-        window.print();
-        window.location.href = 'index.html'
+        //window.print();
+        //window.location.href = 'index.html'
       }
     </script>
 
@@ -104,40 +104,34 @@
     <?php foreach ($childreninfo as $child): ?>
     <table>
       <tr>
-        <td class="seccode spacer-left" colspan="4"><strong><?php echo($child[fname]); ?></strong></td>
+        <td class="seccode spacer-left" colspan="3"><strong><?php echo($child[fname]); ?></strong></td>
+        <td class="seccode right-align spacer-right"><strong><?php echo($code); ?></strong></td>
       </tr>
       <tr>
-        <td class="spacer-left"colspan="4"><strong><?php echo($child[lname]); ?></strong></td>
+        <td class="spacer-left"colspan="2"><strong><?php echo($child[lname]); ?></strong></td>
+        <td class="right-align spacer-right"colspan="2"><?php echo(get_servicetime($stime)); ?></span></td>
       </tr>
       <tr>
-        <td colspan="2"></td>
-        <td colspan="2" class="spacer-left">Area: <?php echo(get_grade($child[grade])); ?></td>
+        <td colspan="4" class="spacer-left">Area: <?php echo(get_grade($child[grade])); ?></td>
       </tr>
       <tr>
-        <td colspan="2"><img src="assets/img/vklogo.png"></td>
-        <td colspan="2">
-          <div class="seccode spacer-left"><strong><?php echo($code); ?></strong></div>
-          <div class="spacer-left"><?php echo(get_servicetime($stime)); ?></div>
-        </td>
+        <td colspan="4"><img class="img-big" src="assets/img/vklogo.png"></td>
       </tr>
     </table>
     <table>
       <tr>
-        <td class="seccode spacer-left" colspan="4"><strong><?php echo($child[fname]); ?></strong></td>
+        <td class="seccode spacer-left" colspan="3"><strong><?php echo($child[fname]); ?></strong></td>
+        <td class="seccode right-align spacer-right"><strong><?php echo($code); ?></strong></td>
       </tr>
       <tr>
-        <td class="spacer-left"colspan="4"><strong><?php echo($child[lname]); ?></strong></td>
+        <td class="spacer-left"colspan="2"><strong><?php echo($child[lname]); ?></strong></td>
+        <td class="right-align spacer-right"colspan="2"><?php echo(get_servicetime($stime)); ?></span></td>
       </tr>
       <tr>
-        <td colspan="2"></td>
-        <td colspan="2" class="spacer-left">Area: <?php echo(get_grade($child[grade])); ?></td>
+        <td colspan="4" class="spacer-left">Area: <?php echo(get_grade($child[grade])); ?></td>
       </tr>
       <tr>
-        <td colspan="2"><img src="assets/img/vklogo.png"></td>
-        <td colspan="2">
-          <div class="seccode spacer-left"><strong><?php echo($code); ?></strong></div>
-          <div class="spacer-left"><?php echo(get_servicetime($stime)); ?></div>
-        </td>
+        <td colspan="4"><img class="img-big" src="assets/img/vklogo.png"></td>
       </tr>
     </table>
     <?php endforeach; ?>

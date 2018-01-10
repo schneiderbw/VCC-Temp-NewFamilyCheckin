@@ -2,12 +2,17 @@ table {
   width: 365px;
   height: 192px;
   table-layout: fixed;
+  margin-bottom: 10px;
 }
 tr {
 }
 td {
   vertical-align: top;
   width: auto;
+  color: black !important;
+}
+.right-align{
+  text-align: right;
 }
 .spacer {
   padding-top: 3px;
@@ -15,6 +20,9 @@ td {
 }
 .spacer-left {
   padding-left: 5px;
+}
+.spacer-right{
+  padding right: 5px;
 }
 .seccode {
   font-size: 24pt;
@@ -28,6 +36,10 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+.img-big{
+  height: 70px !important;
+  width: 70px !important;
 }
 @page {
   margin-left: 1px;
