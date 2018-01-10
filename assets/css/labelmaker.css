@@ -1,0 +1,37 @@
+table {
+  width: 365px;
+  height: 192px;
+  table-layout: fixed;
+}
+tr {
+}
+td {
+  vertical-align: top;
+  width: auto;
+}
+.spacer {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.spacer-left {
+  padding-left: 5px;
+}
+.seccode {
+  font-size: 24pt;
+}
+.center {
+  text-align: center;
+}
+img {
+  height: 42px;
+  width: 42px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+@page {
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 15px;
+  margin-bottom: 1px;
+}

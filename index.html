@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="assets/img/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Vineyard New Family Check-In Labeler</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -31,14 +31,14 @@
         </h3>
       </div>
       <br />
-      <form>
+      <form action="labelmaker.php" method="post" autocomplete="off">
         <div class="form-row">
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">Select Service Time</span>
             </div>
-            <select class="form-control" id="servicetime">
-              <option value="invalid"> -- Select a Service -- </option>
+            <select class="form-control" name="servicetime">
+              <option disabled selected> -- Select a Service -- </option>
               <script type="text/JavaScript">
                 var d = new Date();
                 var n = d.getDay();
@@ -64,17 +64,16 @@
             </select>
           </div>
         </div>
-        <br />
-        <div id="dynamicInput">
+        <div id="dynamicInput" class="my-3">
           <div class="card">
             <div class="card-body">
               <h3>Child 1</h3>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="First Name" id="fname_1">
+                  <input type="text" class="form-control" placeholder="First Name" name="child[1][fname]">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Last Name" id="lname_1">
+                  <input type="text" class="form-control" placeholder="Last Name" name="child[1][lname]">
                 </div>
               </div>
               <br />
@@ -84,7 +83,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">Select Grade</span>
                     </div>
-                    <select class="form-control" id="grade_1`">
+                    <select class="form-control" name="child[1][grade]`">
+                      <option disabled selected> -- Select a Grade -- </option>
                       <option value="ps">PreSchool</option>
                       <option value="kg">Kindergarten</option>
                       <option value="1">1st Grade</option>
@@ -99,12 +99,12 @@
               </div>
             </div>
           </div>
-          <br />
         </div>
+        <input hidden type="text" id="codenumber" name="codenumber">
         <input type="button" class="btn btn-secondary" value="Add Another Child" onClick="addInput('dynamicInput');">
-        <input type="button" class="btn btn-primary" value="Print Labels">
+        <input type="submit" class="btn btn-primary" value="Print Labels">
       </form>
-
+      <div class="mb-4"></div>
 
     </main><!-- /.container -->
 
@@ -124,16 +124,17 @@
           alert("You cannot add more than " + counter + " children.");
         } else {
           var newdiv = document.createElement('div');
-          newdiv.setAttribute("class","card repeating");
+          newdiv.setAttribute("class","card mt-3");
+          counter++;
           newdiv.innerHTML = `
             <div class="card-body">
-              <h3>Child ` + (counter + 1) + `</h3>
+              <h3>Child ` + counter + `</h3>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="First Name" id="fname_` + counter + `">
+                  <input type="text" class="form-control" placeholder="First Name" name="child[` + counter + `][fname]">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Last Name" id="lname_` + counter + `">
+                  <input type="text" class="form-control" placeholder="Last Name" name="child[` + counter + `][lname]">
                 </div>
               </div>
               <br />
@@ -143,7 +144,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">Select Grade</span>
                     </div>
-                    <select class="form-control" id="grade_` + counter + `">
+                    <select class="form-control" name="child[` + counter + `][grade]">
+                      <option disabled selected> -- Select a Grade -- </option>
                       <option value="ps">PreSchool</option>
                       <option value="kg">Kindergarten</option>
                       <option value="1">1st Grade</option>
@@ -158,9 +160,13 @@
               </div>
             </div>`;
             document.getElementById(divName).appendChild(newdiv);
-            counter++;
         }
       }
+    </script>
+    <!-- Randomly Generate Security Code -->
+    <script type="text/javascript">
+      var securitycode = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('codenumber').value = securitycode;
     </script>
   </body>
 </html>
