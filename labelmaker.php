@@ -76,8 +76,8 @@
     <!-- JS to print on page load -->
     <script type="text/javascript">
       function PrintPage() {
-        //window.print();
-        //window.location.href = 'index.html'
+        window.print();
+        window.location.href = 'index.html'
       }
     </script>
 
