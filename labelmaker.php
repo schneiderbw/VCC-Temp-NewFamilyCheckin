@@ -31,6 +31,8 @@
       return "Preschool";
     } elseif ($grade == "kg") {
       return "Kindergarten";
+    } elseif ($grade == "nursery") {
+      return "Nursery";
     } else {
       return $grade;
     }
