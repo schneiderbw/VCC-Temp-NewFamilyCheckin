@@ -11,14 +11,28 @@
 
   //Create a function to make the Service Time human readable
   function get_servicetime($time) {
-    if($time === "sat-1730"){
+    if($time === "sat-1630"){
+      return "Sat. 4:30 PM";
+    } elseif ($time === "sat-1830"){
+      return "Sat. 6:30 PM";
+    } elseif ($time === "sat-1730"){
       return "Sat. 5:30 PM";
-    } elseif ($time === "sun-0900") {
+    } elseif ($time === "sun-0830"){
+      return "Sun. 8:30 AM";
+    } elseif ($time === "sun-0900"){
       return "Sun. 9:00 AM";
-    } elseif ($time === "sun-1030") {
+    } elseif ($time === "sun-1000"){
+      return "Sun. 10:00 AM";
+    } elseif ($time === "sun-1030"){
       return "Sun. 10:30 AM";
-    } elseif ($time === "sun-1200") {
+    } elseif ($time === "sun-1130"){
+      return "Sun. 11:30 AM";
+    } elseif ($time === "sun-1200"){
       return "Sun. 12:00 PM";
+    } elseif ($time === "sun-1300"){
+      return "Sun. 1:00 PM"
+    } elseif ($time === "fri-1900"){
+      return "Fri. 7:00 PM";
     } else {
       $error = 'Service Time Not Defined in Code';
       throw new Exception($error);

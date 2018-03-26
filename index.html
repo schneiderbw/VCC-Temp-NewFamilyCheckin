@@ -15,6 +15,20 @@
     <!-- Load Custom CSS -->
     <link href="assets/css/vineyardcheckin.css" rel="stylesheet">
 
+    <!-- Set Easter Dates -->
+    <script type="text/javascript">
+      var goodfriday, eastersat, eastersun;
+      //Good Friday
+      goodfriday = new Date();
+      goodfriday.setFullYear(2018, 2, 30);
+      //Easter Saturday
+      eastersat = new Date();
+      eastersat.setFullYear(2018, 2, 31);
+      //Easter Sunday
+      eastersun = new Date();
+      eastersun.setFullYear(2018, 3, 1);
+    </script>
+
   </head>
 
   <body>
@@ -43,15 +57,36 @@
                 var d = new Date();
                 var n = d.getDay();
                 if (n == 6) {
-                  document.write(
-                    `<option value="sat-1730">Saturday - 5:30 PM</option>`
-                  );
+                  if (eastersat > d) {
+                    document.write(
+                      `<option value="sat-1630">Saturday - 4:30 PM</option>`
+                    );
+                  } else {
+                    document.write(
+                      `<option value="sat-1730">Saturday - 5:30 PM</option>`
+                    );
+                  }
                 } else if (n == 0) {
-                  document.write(
-                    `<option value="sun-0900">Sunday - 9:00 AM</option>
-                    <option value="sun-1030">Sunday - 10:30 AM</option>
-                    <option value="sun-1200">Sunday - 12:00 PM</option>`
-                  );
+                  if (eastersun > d) {
+                    document.write(
+                      `<option value="sun-0830">Sunday - 8:30 AM</option>
+                      <option value="sun-1000">Sunday - 10:00 AM</option>
+                      <option value="sun-1130">Sunday - 11:30 AM</option>
+                      <option value="sun-1300">Sunday - 1:00 PM</option>`
+                    )
+                  } else {
+                    document.write(
+                      `<option value="sun-0900">Sunday - 9:00 AM</option>
+                      <option value="sun-1030">Sunday - 10:30 AM</option>
+                      <option value="sun-1200">Sunday - 12:00 PM</option>`
+                    );
+                  }
+                } else if (n == 5) {
+                  if (goodfriday > d) {
+                    document.write(
+                      `<option value="fri-1900">Friday - 7:00 PM</option>`
+                    )
+                  }
                 } else {
                   document.write(
                     `<option value="sat-1730">Saturday - 5:30 PM</option>
