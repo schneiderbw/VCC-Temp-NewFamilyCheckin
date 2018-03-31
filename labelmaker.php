@@ -30,7 +30,7 @@
     } elseif ($time === "sun-1200"){
       return "Sun. 12:00 PM";
     } elseif ($time === "sun-1300"){
-      return "Sun. 1:00 PM"
+      return "Sun. 1:00 PM";
     } elseif ($time === "fri-1900"){
       return "Fri. 7:00 PM";
     } else {
