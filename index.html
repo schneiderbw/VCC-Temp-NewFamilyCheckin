@@ -57,7 +57,7 @@
                 var d = new Date();
                 var n = d.getDay();
                 if (n == 6) {
-                  if (eastersat < d) {
+                  if (eastersat > d) {
                     document.write(
                       `<option value="sat-1630">Saturday - 4:30 PM</option>
                       <option value="sat-1830">Saturday - 6:30 PM</option>`
@@ -68,7 +68,7 @@
                     );
                   }
                 } else if (n == 0) {
-                  if (eastersun < d) {
+                  if (eastersun > d) {
                     document.write(
                       `<option value="sun-0830">Sunday - 8:30 AM</option>
                       <option value="sun-1000">Sunday - 10:00 AM</option>
@@ -87,8 +87,7 @@
                     `<option value="sat-1730">Saturday - 5:30 PM</option>
                     <option value="sun-0900">Sunday - 9:00 AM</option>
                     <option value="sun-1030">Sunday - 10:30 AM</option>
-                    <option value="sun-1200">Sunday - 12:00 PM</option>
-                    <option value="fri-1900">Friday - 7:00 PM</option>`
+                    <option value="sun-1200">Sunday - 12:00 PM</option>`
                   );
                 }
               </script>
