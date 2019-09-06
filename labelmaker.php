@@ -93,7 +93,7 @@
     <script type="text/javascript">
       function PrintPage() {
         window.print();
-        window.location.href = 'index.html'
+        setTimeout("location.href = 'index.html';",1500);
       }
     </script>
 

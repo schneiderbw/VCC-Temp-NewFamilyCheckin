@@ -3,6 +3,8 @@ table {
   height: 192px;
   table-layout: fixed;
   margin-bottom: 10px;
+  page-break-after: always;
+  page-break-inside: avoid;
 }
 tr {
 }
@@ -41,9 +43,8 @@ img {
   height: 70px !important;
   width: 70px !important;
 }
-@page {
-  margin-left: 1px;
-  margin-right: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
+@page{
+        size:   4in 2in;
+        margin: 1px;
+        width: 119%;
 }
